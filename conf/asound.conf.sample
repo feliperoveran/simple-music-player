@@ -1,11 +1,9 @@
-# get card id using aplay -l
-
 pcm.!default {
     type hw
-    card 0
+    card <DEVICE_ID>
 }
 
 ctl.!default {
     type hw
-    card 0
+    card <DEVICE_ID>
 }
