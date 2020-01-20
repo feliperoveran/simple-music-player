@@ -6,5 +6,3 @@ TODO:
 - document the API
 - document the installation
 - detect when music is paused
-- check if file exists before attempting to play
-- create app user so it doesn't run as root
