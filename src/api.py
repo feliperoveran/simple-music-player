@@ -38,7 +38,7 @@ def pause():
 
 @app.route('/unpause', methods=['POST'])
 def unpause():
-    player.pause()
+    player.unpause()
 
     return make_response('Unpaused', 200)
 
@@ -46,9 +46,9 @@ def unpause():
 @app.route('/status', methods=['GET'])
 def status():
     if player.status():
-        make_response('Playing', 200)
+        return make_response('Playing', 200)
     else:
-        make_response('Idle', 200)
+        return make_response('Idle', 200)
 
 
 @app.route('/download', methods=['POST'])
