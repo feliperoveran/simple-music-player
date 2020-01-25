@@ -14,7 +14,17 @@ def play():
         else:
             return make_response('failed to play {}'.format(request.args['name']), 400)
     elif 'url' in request.args:
-        file_name = player.download(request.args['url'])
+        url = request.args['url']
+
+        # handle URL with query parameters
+        if 'Key-Pair-Id' in request.args:
+            url += '&Key-Pair-Id=' + request.args['Key-Pair-Id']
+        if 'Expires' in request.args:
+            url += '&Expires=' + request.args['Expires']
+
+        print('Using URL:', url)
+
+        file_name = player.download(url)
         player.play(file_name)
 
         return make_response('playing', 200)
