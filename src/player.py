@@ -43,7 +43,8 @@ class Player:
         return pygame.mixer.music.get_busy()
 
     def download(self, url):
-        file_name = url.split('/')[-1]
+        # Get the last 32 characters so the name is not too long
+        file_name = url.split('/')[-1][-32:]
         file_path = self.source_path + file_name
 
         # check if file exists and return if it does
