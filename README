@@ -1,8 +1,0 @@
-simple music player (WAV/OGG) written in python with pygame
-
-TODO:
-- cli
-- gRPC
-- document the API
-- document the installation
-- detect when music is paused
