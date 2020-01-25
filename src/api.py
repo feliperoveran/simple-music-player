@@ -25,6 +25,7 @@ def play():
         print('Using URL:', url)
 
         file_name = player.download(url)
+
         player.play(file_name)
 
         return make_response('playing', 200)
@@ -66,6 +67,13 @@ def download():
     if 'url' not in request.args:
         return make_response('Missing url argument', 400)
     else:
-        player.download(request.args['url'])
+        url = request.args['url']
+
+        if 'Key-Pair-Id' in request.args:
+            url += '&Key-Pair-Id=' + request.args['Key-Pair-Id']
+        if 'Expires' in request.args:
+            url += '&Expires=' + request.args['Expires']
+
+        player.download(url)
 
         return make_response('Downloaded file', request.args['url'])
