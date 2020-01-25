@@ -9,7 +9,8 @@ import grp
 
 class Player:
     def __init__(self):
-        pygame.mixer.init(channels=2)
+        pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=8096)
+        pygame.mixer.init()
         self.source_path = '{}/music/'.format(os.getenv('APP_PATH'))
 
     def play(self, file_name):
@@ -26,11 +27,17 @@ class Player:
     def stop(self):
         pygame.mixer.music.stop()
 
+        return True
+
     def pause(self):
         pygame.mixer.music.pause()
 
+        return True
+
     def unpause(self):
         pygame.mixer.music.unpause()
+
+        return True
 
     def status(self):
         return pygame.mixer.music.get_busy()
