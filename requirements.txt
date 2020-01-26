@@ -1,3 +1,4 @@
 flask==1.1.1
 wget==3.2
 pygame==2.0.0dev6
+flask-cors==3.0.8
