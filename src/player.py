@@ -5,6 +5,8 @@ import pygame
 import wget
 import pwd
 import grp
+import random
+import string
 
 
 class Player:
@@ -43,8 +45,8 @@ class Player:
         return pygame.mixer.music.get_busy()
 
     def download(self, url):
-        # Get the last 32 characters so the name is not too long
-        file_name = url.split('/')[-1][-32:]
+        # Generate a random name for the file
+        file_name = self._generate_file_name()
         file_path = self.source_path + file_name
 
         # check if file exists and return if it does
@@ -63,3 +65,7 @@ class Player:
         )
 
         return file_name
+
+    def _generate_file_name(self):
+        letters = string.ascii_lowercase
+        return ''.join(random.choice(letters) for i in range(32))

@@ -28,7 +28,7 @@ def play():
 
         player.play(file_name)
 
-        return make_response('playing', 200)
+        return make_response('playing downloaded file: {}'.format(file_name), 200)
     else:
         return make_response('you need to pass either name or url', 400)
 
@@ -74,6 +74,6 @@ def download():
         if 'Expires' in request.args:
             url += '&Expires=' + request.args['Expires']
 
-        player.download(url)
+        file_name = player.download(url)
 
-        return make_response('Downloaded file', request.args['url'])
+        return make_response('Downloaded file: {}'.format(file_name), 200)
