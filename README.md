@@ -1,11 +1,11 @@
-Simple music player (WAV/OGG) written in python with pygame
+Simple music player (WAV/OGG) written in python with Pygame.
 
 ## Instructions for Linux
 
 ### Dependencies
 - docker >= 19.03.5
 
-### Building the project and starting the player
+### Building the project and starting the Player
 Run `./bin/build-image`. After it's done, run `./bin/run-player` to start.
 The HTTP API will be available on `localhost:8080`.
 
